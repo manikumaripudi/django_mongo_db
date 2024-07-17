@@ -85,9 +85,14 @@ WSGI_APPLICATION = 'myapp.wsgi.application'
 
 
 import mongoengine
+from dotenv import load_dotenv
+import os
+
+
+load_dotenv()
 
 mongoengine.connect(
-    host='mongodb+srv://mani:7RSe99zq0eOBOm5C@cluster0.wsrvu21.mongodb.net/demodatabase?retryWrites=true&w=majority&appName=Cluster0',
+host=os.getenv('HOST'),
 )
 
 # Password validation
